@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="../../public/logo.svg" />
+  <link rel="manifest" href="../../public/manifest.json" />
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
+</head>
+
+<body id="app">
+  <div id="app-wrapper">
+    <div id="app-top-bar" class="top-bar"></div>
+
+    <div id="inner-app-tab-container">
+      <div class="inner-app-tab">
+        <select id="unit-type" class="unit-dropdown type">
+        </select>
+        <div id="unit-wrapper">
+          
+          <button id="swap-unit" class="toggle">
+            <i class="ph-bold ph-arrows-down-up"></i>
+          </button>
+          
+          <div id="unit-accepter" class="unit-component">
+            <input id="acceptor-input" class="unit-box" type="number" value="1">
+            <select id="acceptor-unit-input" class="unit-dropdown unit">
+            </select>
+          </div>
+          
+          <hr class="unit-sep">
+          
+          <div id="unit-emmitter" class="unit-component">
+            <input id="emmitter-input" class="unit-box" type="number" readonly="true" value="1">
+            <select id="emmitter-unit-input" class="unit-dropdown unit">
+            </select>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="../script.js"></script>
+  <script type="module" src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../sw.js')
+      });
+    }
+  </script>
+</body>
+
+</html>

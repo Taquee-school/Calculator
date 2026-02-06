@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="../../public/logo.svg">
+  <link rel="manifest" href="../../public/manifest.json">
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
+</head>
+
+<body id="app" data-theme="dark" data-palette="blue" class="dark squircle blue">
+  <div id="app-wrapper">
+    <div id="app-top-bar" class="top-bar"></div>
+
+    <div id="inner-app-tab-container">
+      <div id="simple-calculator" class="inner-app-tab">
+        <div id="expression-panel" class="expressionPanel">
+          <p id="expression" class="expression"></p>
+        </div>
+
+        <div class="button-panel">
+          <button class="panel-button operators ripple stretch glow" onclick="clearExpression()">
+            <p>AC</p>
+          </button>
+          <button class="panel-button operators ripple stretch glow">
+            <i class="ph-bold ph-percent"></i>
+          </button>
+          <button class="panel-button operators ripple stretch glow" onclick="addToExpression('÷')">
+            <i class="ph-bold ph-divide"></i>
+          </button>
+          <button id="bn-backspace" class="panel-button operators ripple stretch glow">
+            <i class="ph-bold ph-backspace"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-1" onclick="addToExpression('1')">
+            <i class="ph-bold ph-number-one"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-2" onclick="addToExpression('2')">
+            <i class="ph-bold ph-number-two"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-3" onclick="addToExpression('3')">
+            <i class="ph-bold ph-number-three"></i>
+          </button>
+          <button class="panel-button operators ripple stretch glow" id="bn-add" onclick="addToExpression('+')">
+            <i class="ph-bold ph-plus"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-4" onclick="addToExpression('4')">
+            <i class="ph-bold ph-number-four"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-5" onclick="addToExpression('5')">
+            <i class="ph-bold ph-number-five"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-6" onclick="addToExpression('6')">
+            <i class="ph-bold ph-number-six"></i>
+          </button>
+          <button class="panel-button operators ripple stretch glow" id="bn-sub" onclick="addToExpression('-')">
+            <i class="ph-bold ph-minus"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-7" onclick="addToExpression('7')">
+            <i class="ph-bold ph-number-seven"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-8" onclick="addToExpression('8')">
+            <i class="ph-bold ph-number-eight"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" id="bn-9" onclick="addToExpression('9')">
+            <i class="ph-bold ph-number-nine"></i>
+          </button>
+          <button class="panel-button operators ripple stretch glow" id="bn-mul" onclick="addToExpression('×')">
+            <i class="ph-bold ph-x"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('.')">
+            <i class="ph-bold ph-dot"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('0')">
+            <i class="ph-bold ph-number-zero"></i>
+          </button>
+          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('(')">
+            <i class="ph-bold ph-brackets-round"></i>
+          </button>
+          <button class="panel-button operators ripple stretch glow">
+            <i class="ph-bold ph-equals"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="../script.js"></script>
+    <script src="script.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../sw.js')
+      });
+    }
+  </script>
+</body>
+
+</html>

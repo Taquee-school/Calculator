@@ -1,0 +1,56 @@
+{
+  "name": "Calculator",
+  "short_name": "Calculator",
+  "description": "tools",
+  "start_url": "./../app/simple-calculator/",
+  "scope": "./../",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "orientation": "portrait",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Simple Calculator",
+      "short_name": "Calculator",
+      "description": "simple",
+      "url": "./../app/simple-calculator",
+      "icons": []
+    },
+    {
+      "name": "Unit converter",
+      "short_name": "Unit converter",
+      "description": "simple",
+      "url": "./../app/unit-converter",
+      "icons": []
+    },
+    {
+      "name": "Currency converter",
+      "short_name": "Currency converter",
+      "description": "simple",
+      "url": "./../app/currency-converter",
+      "icons": []
+    },
+    {
+      "name": "Scientific calculator",
+      "short_name": "Scientific calculator",
+      "description": "simple",
+      "url": "./../app/scientific-calculator",
+      "icons": []
+    }
+  ]
+}

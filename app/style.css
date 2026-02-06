@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Varela+Round&display=swap');
+
+/*#region MARK: animations */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: 400ms ease-out both slide-out-left;
+}
+
+::view-transition-new(root) {
+  animation: 400ms ease-in both slide-in-right;
+}
+
+@keyframes appear {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes disappear {
+  to { opacity: 0; }
+}
+
+@keyframes slide-in-top {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slide-out-top {
+  to { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes slide-in-bottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slide-out-bottom {
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes slide-in-right {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-right {
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes slide-in-left {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-left {
+  to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes ripple-animation {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/*#region MARK: anim class */
+.anim-appear-panel {
+  animation: appear 0.3s ease;
+}
+.anim-disappear-panel {
+  animation: disappear 0.3s ease;
+}
+
+/*#endregion anim class */
+
+/*#endregion animations */
+
+/*#region MARK: variables */
+#app {
+  --primary-header: 600 25px "Comfortaa";
+  --primary-text: 500 16px "Comfortaa";
+  --secondary-text: 500 14px "Comfortaa";
+  --medium-icon-size: 20px;
+  --large-icon-size: 25px;
+}
+
+.dark {
+  --primary-border-color: #505050;
+  --absolute-bg: #000000;
+  --primary-bg: #000000;
+  --secondary-bg: #252525;
+
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #d1d1d1;
+
+  --ripple-color: #ffffff1a;
+}
+
+.light {
+  --primary-border-color: #858585;
+  --absolute-bg: #ffffff;
+  --primary-bg: #ffffff;
+  --secondary-bg: #d1d1d1;
+
+  --primary-text-color: #000000;
+  --secondary-text-color: #252525;
+
+  --ripple-color: #19191930;
+}
+
+.dark.blue {
+  --primary-bg: #101114;
+  --secondary-bg: #22242b;
+
+  --secondary-text-color: var(--button-text-color);
+
+  --button-border-color-1: var(--button-text-color);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #1c38b410;
+  --button-bg-2: #ffffff10;
+  --button-text-color: #1c33b4;
+  --button-ripple-color: #222ed8;
+}
+
+.light.blue {
+  --primary-bg: #cadbff;
+  --secondary-bg: #9db1d6;
+
+  --secondary-text-color: var(--button-bg-1);
+
+  --button-border-color-1: var(--button-bg-1);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #1c4cb4;
+  --button-bg-2: #bac1d8;
+  --button-text-color: #000000;
+  --button-ripple-color: #224cd8;
+}
+
+.dark.green {
+  --primary-bg: #111410;
+  --secondary-bg: #242b22;
+
+  --secondary-text-color: var(--button-text-color);
+
+  --button-border-color-1: var(--button-text-color);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #35b41c10;
+  --button-bg-2: #ffffff10;
+  --button-text-color: #35b41c;
+  --button-ripple-color: #65d822;
+}
+
+.light.green {
+  --primary-bg: #d6ffca;
+  --secondary-bg: #a7d69d;
+
+  --secondary-text-color: var(--button-bg-1);
+
+  --button-border-color-1: var(--button-bg-1);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #35b41c;
+  --button-bg-2: #bbd8ba;
+  --button-text-color: #000000;
+  --button-ripple-color: #65d822;
+}
+
+.dark.orange {
+  --primary-bg: #141210;
+  --secondary-bg: #2b2722;
+
+  --secondary-text-color: var(--button-text-color);
+
+  --button-border-color-1: var(--button-text-color);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #b4771c10;
+  --button-bg-2: #ffffff10;
+  --button-text-color: #b4721c;
+  --button-ripple-color: #d88f22;
+}
+
+.light.orange {
+  --primary-bg: #ffecca;
+  --secondary-bg: #e7baa0;
+
+  --secondary-text-color: var(--button-bg-1);
+
+  --button-border-color-1: var(--button-bg-1);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #db5f26;
+  --button-bg-2: #d8cbba;
+  --button-text-color: #000000;
+  --button-ripple-color: #d89e22;
+}
+
+.dark.monochrome {
+  --primary-bg: #000000;
+  --secondary-bg: #252525;
+
+  --secondary-text-color: var(--button-text-color);
+
+  --button-border-color-1: var(--button-text-color);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #b9b9b910;
+  --button-bg-2: #ffffff10;
+  --button-text-color: #aaaaaa;
+  --button-ripple-color: #d4d4d4;
+}
+
+.light.monochrome {
+  --primary-bg: #ffffff;
+  --secondary-bg: #e0e0e0;
+
+  --secondary-text-color: var(--button-bg-1);
+
+  --button-border-color-1: var(--button-bg-1);
+  --button-border-color-2: var(--button-bg-2);
+  --button-bg-1: #b9b9b9;
+  --button-bg-2: #e7e7e7;
+  --button-text-color: #000000;
+  --button-ripple-color: #c2c2c2;
+}
+
+/*#endregion variables */
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "Comfortaa";
+  background: var(--primary-bg);
+}
+
+.safe-area {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  right: 0;
+  background: var(--primary-bg);
+  background: var(--secondary-bg);
+}
+
+.safe-area.bottom {
+  bottom: 0;
+  height: calc(env(safe-area-inset-bottom));
+  height: 50px;
+}
+
+* {
+  color: var(--primary-text-color);
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+#app-wrapper {
+  position: relative;
+  height: 100dvh;
+  width: 100dvw;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar {
+  flex-shrink: 0;
+  height: 7%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mode-toggle-div {
+  height: 50px;
+  gap: 10px;
+  padding: 0 15px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  background: var(--secondary-bg);
+}
+
+.mode-toggle-div a {
+  text-decoration: none;
+}
+.mode-toggle-div a i {
+  font-size: var(--large-icon-size);
+}
+.mode-toggle-div .active i {
+  color: var(--secondary-text-color);
+}
+
+.added-panel {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: fit-content;
+  width: 75%;
+  overflow: hidden;
+  margin: auto;
+  padding: 20px 0;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--secondary-bg);
+}
+
+.added-panel-header {
+  margin-left: 15px;
+  font: var(--primary-header);
+}
+
+.option-panel-btn {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  gap: 10px;
+  border: none;
+  display: flex;
+  background: transparent;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.option-panel-btn p {
+  font: var(--primary-text);
+}
+
+.option-panel-btn i {
+  font-size: var(--medium-icon-size);
+}
+
+.added-panel-btn-div {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.added-panel-btn-div button {
+  border: none;
+  background: transparent;
+}
+
+.added-panel-btn-div button p {
+  font: var(--primary-text);
+}
+
+#option-panel {
+  z-index: 1;
+  top: 7%;
+  right: 20px;
+  bottom: auto;
+  left: auto;
+  width: 30%;
+  min-width: fit-content;
+  margin: 0;
+  padding: 0 5px;
+}
+
+#inner-app-tab-container {
+  flex-grow: 1;
+}
+
+.inner-app-tab {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/*#region MARK: global styles */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-span {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+  background: var(--ripple-color);
+}
+
+.toggle {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--secondary-bg);
+}
+
+[data-os = "ios"] .togglhe {
+  backdrop-filter: blur(2px);
+  background: transparent;
+}
+
+.toggle i {
+  font-size: var(--large-icon-size);
+}
+
+/*#endregion global styles */
