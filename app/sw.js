@@ -1,8 +1,7 @@
 const CACHE_NAME = 'Calculator';
-const sw_Version = "v1.2.0";
-const ASSETS = [
-  "../public/logo.svg"
-];
+const CACHE_VERSION = "v1.2.0";
+
+const ASSETS = ["../public/logo.svg"];
 
 // Install the service worker and cache assets
 self.addEventListener('install', (event) => {
