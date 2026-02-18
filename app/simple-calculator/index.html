@@ -9,7 +9,7 @@
   <link rel="manifest" href="../../public/manifest.json">
   <title>Simple Calculator</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
 </head>
@@ -24,72 +24,72 @@
           <p id="expression" class="expression"></p>
         </div>
 
-        <div class="button-panel">
-          <button class="panel-button operators ripple stretch glow" onclick="clearExpression()">
+        <div class="button-panel" id="button-panel">
+          <button class="panel-button operators ripple stretch glow" data-work="clear">
             <p>AC</p>
           </button>
-          <button class="panel-button operators ripple stretch glow">
+          <button class="panel-button operators ripple stretch glow" data-work="percent">
             <i class="ph-bold ph-percent"></i>
           </button>
-          <button class="panel-button operators ripple stretch glow" onclick="addToExpression('÷')">
+          <button class="panel-button operators ripple stretch glow" data-operation="/" data-value="÷">
             <i class="ph-bold ph-divide"></i>
           </button>
-          <button id="bn-backspace" class="panel-button operators ripple stretch glow">
+          <button id="bn-backspace" class="panel-button operators ripple stretch glow" data-work="backspace">
             <i class="ph-bold ph-backspace"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-1" onclick="addToExpression('1')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-1" data-value="1">
             <i class="ph-bold ph-number-one"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-2" onclick="addToExpression('2')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-2" data-value="2">
             <i class="ph-bold ph-number-two"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-3" onclick="addToExpression('3')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-3" data-value="3">
             <i class="ph-bold ph-number-three"></i>
           </button>
-          <button class="panel-button operators ripple stretch glow" id="bn-add" onclick="addToExpression('+')">
+          <button class="panel-button operators ripple stretch glow" id="bn-add" data-operation="+" data-value="+">
             <i class="ph-bold ph-plus"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-4" onclick="addToExpression('4')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-4" data-value="4">
             <i class="ph-bold ph-number-four"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-5" onclick="addToExpression('5')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-5" data-value="5">
             <i class="ph-bold ph-number-five"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-6" onclick="addToExpression('6')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-6" data-value="6">
             <i class="ph-bold ph-number-six"></i>
           </button>
-          <button class="panel-button operators ripple stretch glow" id="bn-sub" onclick="addToExpression('-')">
+          <button class="panel-button operators ripple stretch glow" id="bn-sub" data-operation="-" data-value="-">
             <i class="ph-bold ph-minus"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-7" onclick="addToExpression('7')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-7" data-value="7">
             <i class="ph-bold ph-number-seven"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-8" onclick="addToExpression('8')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-8" data-value="8">
             <i class="ph-bold ph-number-eight"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" id="bn-9" onclick="addToExpression('9')">
+          <button class="panel-button numbers ripple stretch glow" id="bn-9" data-value="9">
             <i class="ph-bold ph-number-nine"></i>
           </button>
-          <button class="panel-button operators ripple stretch glow" id="bn-mul" onclick="addToExpression('×')">
+          <button class="panel-button operators ripple stretch glow" id="bn-mul" data-operation="*" data-value="×">
             <i class="ph-bold ph-x"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('.')">
+          <button class="panel-button numbers ripple stretch glow" data-value=".">
             <i class="ph-bold ph-dot"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('0')">
+          <button class="panel-button numbers ripple stretch glow" data-value="0">
             <i class="ph-bold ph-number-zero"></i>
           </button>
-          <button class="panel-button numbers ripple stretch glow" onclick="addToExpression('(')">
+          <button class="panel-button numbers ripple stretch glow" data-value="(">
             <i class="ph-bold ph-brackets-round"></i>
           </button>
-          <button class="panel-button operators ripple stretch glow">
+          <button class="panel-button operators ripple stretch glow" data-work="result">
             <i class="ph-bold ph-equals"></i>
           </button>
         </div>
       </div>
     </div>
-    <script src="../script.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="../script.js"></script>
+    <script type="module" src="./script.js"></script>
     <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {

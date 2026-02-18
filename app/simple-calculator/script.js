@@ -19,9 +19,29 @@ function addToExpression(part) {
   });
 }
 
+const buttonPanel = document.getElementById("button-panel");
+
+buttonPanel.querySelectorAll(".numbers").forEach(button => {
+  button.addEventListener("click", () => {
+    addToExpression(button.dataset.value);
+  })
+});
+
+buttonPanel.querySelectorAll(".operators").forEach(button => {
+  button.addEventListener("click", () => {
+    if (button.dataset.work) {}
+    else {
+      addToExpression(button.dataset.value);
+    }
+  })
+});
+
+const clearBtn = document.querySelector("[data-work='clear']");
+clearBtn.addEventListener("click", clearExpression);
+
 function clearExpression() {
-  expression = "";
   expressionElement.innerHTML = null;
+  expression = "";
   expressionElement.style.fontSize = `70px`;
   updateExpression();
 }
@@ -32,7 +52,7 @@ function updateExpression() {
 }
 // #endregion Expression
 
-// #region Backspace button
+// #region Backspace
 const bnBackspace = document.getElementById("bn-backspace");
 let pressTimer1;
 let pressTimer2;

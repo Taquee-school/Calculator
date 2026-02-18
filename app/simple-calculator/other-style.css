@@ -1,18 +1,31 @@
 #simple-calculator {
+  --button-bg-1: #dfdfdf;
+  --button-bg-2: #dfdfdf;
+  --primary-text-color: #414141;
+  --secondary-text-color: #8a8a8a;
+  --button-border-color-1: #8a8a8a;
+  --button-border-color-2: #8a8a8a;
+  --button-ripple-color: #8a8a8a;
+  --button-shadow-color: #8a8a8a;
+
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background: white;
 }
 
 .expressionPanel {
-  flex-shrink: 0;
-  flex-grow: 1;
-  width: 100%;
+  width: calc(100% - 10px);
+  height: max-content;
   overflow: hidden;
-  margin: 0;
+  box-sizing: border-box;
+  margin: 10px auto;
   padding: 0;
   display: flex;
   align-items: center;
+  background: #dfdfdf;
+  border-radius: 20px;
+  box-shadow: inset 5px 5px 10px 0px #8a8a8a, inset -5px -5px 10px 0px #ffffff;
 }
 
 #expression {
@@ -26,6 +39,7 @@
   margin: 0;
   padding: 0 10px;
   white-space: nowrap;
+  color: var(--primary-text-color);
 }
 #expression span {
   display: inline-block;
@@ -45,7 +59,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  row-gap: 5px;
+  gap: 10px;
   justify-items: center;
   align-items: center;
 }
@@ -55,9 +69,9 @@
   --y-d: 1px;
 
   cursor: pointer;
-  height: 23vw;
+  height: 20vw;
   max-height: 12vh;
-  width: 23vw;
+  width: 20vw;
   border: none;
   display: flex;
   justify-content: center;
@@ -65,6 +79,13 @@
   font-size: 2.5rem;
   backdrop-filter: blur(5px);
   transition: background 100ms ease-out, border-radius 100ms ease;
+  box-shadow: 5px 5px 0px 0px #8a8a8a,
+    5px 5px 10px #c4c4c4 inset,
+    -5px -5px 10px #ffffff inset;
+}
+
+.panel-button:active {
+  box-shadow: 2.5px 2.5px 0px 0px #8a8a8a;
 }
 
 .squircle .panel-button {
@@ -83,11 +104,10 @@
 
 .panel-button i {
   font-size: 40px;
+  color: black;
 }
 
 .numbers {
-  /* border: 1.5px solid var(--button-border-color-2); */
-  box-shadow: var(--x-d) var(--y-d) 0px var(--button-border-color-2) inset;
   background-color: var(--button-bg-2);
 }
 
@@ -95,13 +115,7 @@
   background-color: rgb(180, 180, 180);
 }
 
-.operators i,
-.operators p {
-  color: var(--button-text-color);
-}
-
 .operators {
-  box-shadow: var(--x-d) var(--y-d) 0px var(--button-border-color-1) inset;
   background-color: var(--button-bg-1);
 }
 .operators .ripple-span {

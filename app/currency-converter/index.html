@@ -9,7 +9,7 @@
   <link rel="manifest" href="../../public/manifest.json">
   <title>Currency Converter</title>
   <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
 </head>
@@ -17,12 +17,10 @@
 <body id="app">
   <div id="app-wrapper">
     <div id="app-top-bar" class="top-bar"></div>
-
-    <div id="inner-app-tab-container">
-    </div>
+    <div id="inner-app-tab-container"></div>
   </div>
-  <script src="../script.js"></script>
-  <script src="script.js"></script>
+  <script type="module" src="../script.js"></script>
+  <script type="module" src="./script.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
